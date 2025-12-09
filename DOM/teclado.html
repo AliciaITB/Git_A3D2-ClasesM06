@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .tecla {
+            width: 100px;
+            height: 100px;
+            border: 5px grey solid;
+            border-radius: 3px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 40px;
+            color: grey;
+            text-align: center;
+            margin: 5px;
+        }
+
+        #teclado{
+            display: flex;
+            flex-wrap: wrap;
+            width: 400px;
+        }
+
+        
+    </style>
+    <title>Ejemplo 1 - Hello World JS</title>
+</head>
+
+<body>
+    <h1 id="titulo">Teclado númerico</strong></h1>
+    <div id="teclado">
+
+    </div>
+    <script>
+        //Cojo el div del teclado, para luego ir añadiendo
+        let teclado = document.getElementById("teclado");
+
+        for (let i = 1; i < 100; i++) {
+            //Creo la tecla
+            let tecla = document.createElement("div");
+            tecla.innerHTML = "<p>"+i+"</p>";
+            tecla.className = "tecla";
+
+            if((i%2)==0){
+                //poner fondo azul
+                tecla.style.background="blue";
+                tecla.style.color="white";
+            }
+            if((i%3)==0){
+                //poner fondo azul
+                tecla.style.background="red";
+                tecla.style.color="white";
+            }
+
+            //Añado la tecla al teclado
+            teclado.appendChild(tecla);
+        }
+    </script>
+</body>
+
+</html>

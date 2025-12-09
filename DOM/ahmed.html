@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo">Titulo Original</h1>
+    <main id="main" style="background-color: aquamarine;">main</main>
+    <p id="paragrafo">Texto original</p>
+
+    <img id="mascota" src="imagenes/foca.jpeg" style="width: 200px;">
+    <p id="descripcion">Esta es la mascota de la clase, una foca.</p>
+
+    
+
+    <script src="ahmed.js" defer>
+
+    </script>
+</body>
+</html>
+
+<div id="articulos"><p>Parrafo que está en el HTML</p></div>
+   <script>
+       //Creamos y añadimos nuevos elementos usando CREATE y APPEND
+
+       let parrafoPrimero = document.createElement('p');
+       let parrafoPrimeroTexto = document.createTextNode('Párrafo que creamos al principio pero que añadimos al final');
+       parrafoPrimero.appendChild(parrafoPrimeroTexto);
+      
+
+       let destacado = document.createElement('em');
+       destacadoTexto = document.createTextNode('texto que destacamos');
+       destacado.appendChild(destacadoTexto);
+
+       let parrafoSegundo = document.createElement('p');
+       let parrafoSegundoTexto1 = document.createTextNode('Este es el ');
+       let parrafoSegundoTexto2 = document.createTextNode(' del segundo párrafo. Tenemos que ir añadiendo en el orden en que queremos que salga.');
+      
+       //Añadimos los nosdos texto y em que hemos en el orden.
+       parrafoSegundo.appendChild(parrafoSegundoTexto1);
+       parrafoSegundo.appendChild(destacado);
+       parrafoSegundo.appendChild(parrafoSegundoTexto2);
+      
+       //Tenemos creados todos los parrafos y ahora hay que añadirlos a un elemetos que está en el DOM.
+       let miDiv = document.getElementById('articulos');
+       miDiv.style.backgroundColor='green';
+
+      
+       //Insertamos el P que hemos definido en segunda posición, ANTES que el que hay ya dentro de la DIV.
+       let parrafoDOM = miDiv.children[0];
+       miDiv.insertBefore(parrafoSegundo, parrafoDOM);
+
+       //O bien lo pondriamos a continuación
+       // miDiv.appendChild(parrafoSegundo);
+
+       //Lo añadimos al final, se colocará automáticamente en la cola.
+       miDiv.appendChild(parrafoPrimero);
+   </script>
