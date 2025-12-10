@@ -9,26 +9,7 @@ function crearTeclado() {
         tecla.innerHTML = "<p>" + i + "</p>";
         tecla.className = "tecla";
 
-        if ((i % 2) == 0) {
-            //poner fondo azul
-            tecla.style.background = "blue";
-            tecla.style.color = "white";
-        }
-        if ((i % 5) == 0) {
-            //poner fondo azul
-            tecla.style.background = "yellow";
-
-        }
-        if ((i % 3) == 0) {
-            //poner fondo azul
-            tecla.style.background = "red";
-            tecla.style.color = "white";
-        }
-        if (esPrimo(i)) {
-            //poner fondo azul
-            tecla.style.background = "green";
-            tecla.style.color = "white";
-        }
+        tecla = cambiarFondoTecla(i,tecla);
 
         //Añado la tecla al teclado
         teclado.appendChild(tecla);
@@ -45,6 +26,36 @@ function esPrimo(num) {
         }
     }
     return true;                       // si no tuvo divisores, es primo
+}
+
+function cambiarFondoTecla(i, tecla) {
+    if ((i % 2) == 0) {
+        //poner fondo azul
+        tecla.style.background = "blue";
+        tecla.style.color = "white";
+    }
+    if ((i % 5) == 0) {
+        //poner fondo azul
+        tecla.style.background = "yellow";
+
+    }
+    if ((i % 3) == 0) {
+        //poner fondo azul
+        tecla.style.background = "red";
+        tecla.style.color = "white";
+    }
+    if ((i % 10) == 0) {
+        //poner fondo azul
+        tecla.style.background = "orange";
+
+    }
+    if (esPrimo(i)) {
+        //poner fondo azul
+        tecla.style.background = "green";
+        tecla.style.color = "white";
+    }
+
+    return tecla;
 }
 
 crearTeclado();
