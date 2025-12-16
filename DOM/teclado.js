@@ -3,19 +3,68 @@ function crearTeclado() {
     //Cojo el div del teclado, para luego ir añadiendo
     let teclado = document.getElementById("teclado");
 
-    for (let i = 1; i < 100; i++) {
+    for (let i = 65; i < 90; i++) {
         //Creo la tecla
         let tecla = document.createElement("div");
-        tecla.innerHTML = "<p>" + i + "</p>";
+        tecla.innerHTML = "<p>" + String.fromCharCode(i) + "</p>";
         tecla.className = "tecla";
 
-        tecla = cambiarFondoTecla(i,tecla);
+        //tecla = cambiarFondoTecla(i,tecla);
+
+        //Añadir evento.
+        // tecla.addEventListener('click',escribeTecla)
+        tecla.setAttribute('onclick', "escribeTecla('" + String.fromCharCode(i) + "')");
 
         //Añado la tecla al teclado
         teclado.appendChild(tecla);
     }
+
+    palabraSecreta();
+}
+let palabra = "";
+function palabraSecreta() {
+    fetch('https://random-word-api.herokuapp.com/word?lang=es&length=5')
+        .then(response => response.json())
+        .then(data => {
+            palabra = data[0]; // La API devuelve un array, ej: ["perro"]
+            //Pasamos la palabra a mayusculas
+            palabra=palabra.toUpperCase();
+            console.log("Tu palabra secreta es:", palabra);
+        });
+}
+function escribeTecla(letra) {
+    //  console.log(letra);
+    let miTexto = document.getElementById("miTexto");
+    console.log("En miTexto hay: " + miTexto.textContent)
+    if (miTexto.textContent.length < 5) {
+        miTexto.textContent += letra
+        console.log("En miTexto he añadido " + letra + " y ahora hay: " + miTexto.textContent)
+    } else {
+        miTexto.style.backgroundColor = "red";
+        console.log("demasiado largo")
+    }
 }
 
+function borrarLetra() {
+    let miTexto = document.getElementById("miTexto");
+    if (miTexto.textContent.length > 0) {
+        miTexto.style.backgroundColor = 'purple'
+        miTexto.textContent = miTexto.textContent.substring(0, miTexto.textContent.length - 1);
+    }
+}
+
+function comprobar() {
+    let miTexto = document.getElementById("miTexto");
+    if (miTexto.textContent == palabra) {
+        miTexto.style.backgroundColor = "green";
+        alert("You win perfect!");
+    } else {
+        alert("You lost");
+    }
+}
+
+
+/***TECLADO NUMERICO */
 function esPrimo(num) {
     if (num < 2) return false;        // 0 y 1 no son primos
     let limite = Math.sqrt(num);      // optimización
