@@ -1,3 +1,13 @@
+const qwertyAscii = [
+  // Primera fila (Superior)
+  81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 32, 
+  // Segunda fila (Media)
+  65, 83, 68, 70, 71, 72, 74, 75, 76, 32, 
+  // Tercera fila (Inferior)
+  90, 88, 67, 86, 66, 78, 77
+];
+
+
 
 function crearTeclado() {
     //Cojo el div del teclado, para luego ir añadiendo
