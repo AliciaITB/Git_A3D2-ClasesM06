@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Soldadito</title>
-    <style>
-        /* Quitamos los márgenes para que ocupe toda la pantalla */
-        body { margin: 0; overflow: hidden; }
-        canvas { display: block; }
-    </style>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -22,21 +18,7 @@
 
 
 
-    <div id="mensaje-hola" style="
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(255, 255, 255, 0.9);
-        padding: 20px;
-        border: 4px solid #ff0000;
-        border-radius: 15px;
-        font-family: 'Arial', sans-serif;
-        font-weight: bold;
-        display: none; /* Oculto al inicio */
-        pointer-events: none; /* Para que no interfiera con el mouse */
-        z-index: 100;
-    ">
+    <div id="saludos" class="mensaje">
         <h1 style="margin: 0; color: #333;">¡HOLA!</h1>
         <p style="margin: 5px 0 0 0;">Soy tu soldado de plomo.</p>
     </div>

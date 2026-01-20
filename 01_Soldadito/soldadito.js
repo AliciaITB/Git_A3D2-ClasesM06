@@ -142,7 +142,7 @@ function animate() {
     leftArm.rotation.z = -0.1; 
     rightArm.rotation.z = 0.1;
 
-    soldier.rotation.y += 0.01;
+    //soldier.rotation.y += 0.01;
 
 
     controls.update();
@@ -161,7 +161,7 @@ window.addEventListener('resize', () => {
 
 /*******EVENTOS *******/
 // Referencia al elemento HTML
-const divHola = document.getElementById('mensaje-hola');
+const divHola = document.getElementById('saludos');
 
 // Variables para el Raycaster
 const raycaster = new THREE.Raycaster();
@@ -180,6 +180,7 @@ window.addEventListener('click', (event) => {
         if (objectHit.userData.name === "sombrero") {
             // MOSTRAMOS LA CAPA
             divHola.style.display = 'block';
+            divHola.innerHTML+="<p>Me has dado en el sombrero</p>"
 
             // LA OCULTAMOS AUTOMÁTICAMENTE después de 2 segundos
             setTimeout(() => {

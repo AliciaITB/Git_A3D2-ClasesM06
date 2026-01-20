@@ -1,0 +1,26 @@
+/* Quitamos los márgenes para que ocupe toda la pantalla */
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+}
+
+.mensaje {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    background: rgb(207, 207, 207);
+    padding: 20px;
+    border: 1px solid #ff0000;
+    border-radius: 15px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    display: none;
+    /* Oculto al inicio */
+    pointer-events: none;
+    /* Para que no interfiera con el mouse */
+    z-index: 100;
+}

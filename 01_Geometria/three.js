@@ -5,7 +5,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 // --- A. CONFIGURACIÓN BÁSICA ---
 //Escene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x901111); // Color de fondo gris oscuro
+scene.background = new THREE.Color(0x900011); // Color de fondo gris oscuro
 
 //1. Camara
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -50,7 +50,7 @@ cube2.position.set(3,0,0)
 scene.add(cube2);
 
 
-
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 // --- D. CONTROLES (La navegación) ---
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; // Añade inercia al movimiento (más suave)
